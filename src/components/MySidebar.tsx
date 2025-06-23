@@ -4,7 +4,7 @@
 import { Drawer } from "@mui/material";
 import { SidebarClasses, useLocale, useSidebarState } from "react-admin";
 
-export const MySidebar = ({ children }: any) => {
+export const MySidebar = ({ children }: { children?: React.ReactNode }) => {
   const [open, setOpen] = useSidebarState();
   useLocale(); // force redraw on locale change
 

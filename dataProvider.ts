@@ -5,7 +5,7 @@
 // 配置 React Admin 的 dataProvider，让前端知道如何从 Mock API 获取数据。
 import { fetchUtils } from "react-admin";
 import DataProvider from "ra-data-json-server";
-const httpClient = (url: string, options: any = {}) => {
+const httpClient = (url: string, options: RequestInit = {}) => {
   if (!options.headers) {
     options.headers = new Headers({ Accept: "application/json" });
   }
