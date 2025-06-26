@@ -5,7 +5,7 @@
       "title": "The Great Gatsby",
       "author": "F. Scott Fitzgerald",
       "publishedAt": "1925-04-10",
-      "category": "Fiction"
+      "category": "ceshi"
     },
     {
       "id": 2,
@@ -20,6 +20,20 @@
       "author": "Yuval Noah Harari",
       "publishedAt": "2011-02-10",
       "category": "Non-Fiction"
+    },
+    {
+      "title": "测试",
+      "author": "zdb",
+      "publishedAt": "2025-06-12",
+      "category": "Non-Fiction",
+      "id": 4
+    },
+    {
+      "title": "事实上",
+      "author": "事实上",
+      "publishedAt": "2025-06-13",
+      "category": "Fiction",
+      "id": 5
     }
   ]
 }
