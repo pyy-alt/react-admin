@@ -39,8 +39,15 @@
       "title": "安徒生童话全集",
       "author": "zdb",
       "publishedAt": "2025-06-05",
-      "category": "Fiction",
+      "category": "Non-Fiction",
       "id": 6
+    },
+    {
+      "title": "测试一下",
+      "author": "chess",
+      "publishedAt": "2025-06-12",
+      "category": "Science",
+      "id": 7
     }
   ]
 }
