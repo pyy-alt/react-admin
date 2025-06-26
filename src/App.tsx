@@ -1,22 +1,13 @@
 import { Admin, Resource } from "react-admin";
-import { dataProvider } from "../dataProvider";
-import { Dashboard } from "./pages/Dashboard";
-import { UserList } from "./pages/UserList";
-import { CustomLayout } from "./components/Layout";
-import { UserShow } from "./pages/UserShow";
-import { EditUser } from "./pages/EditUser";
-import { CreateUser } from "./pages/CreateUser";
+import jsonServerProvider from "ra-data-json-server";
+import { BookList } from "./pages/BookList";
+
+// 连接 json-server
+const dataProvider = jsonServerProvider("http://localhost:3001");
 
 const App = () => (
-  <Admin dataProvider={dataProvider} layout={CustomLayout}>
-    <Resource
-      name="users"
-      list={UserList}
-      show={UserShow}
-      edit={EditUser}
-      create={CreateUser}
-    />
-    <Resource name="dashboard" list={Dashboard} />
+  <Admin dataProvider={dataProvider}>
+    <Resource name="books" list={BookList} />
   </Admin>
 );
 

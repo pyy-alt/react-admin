@@ -1,37 +1,25 @@
 {
-  "users": [
+  "books": [
     {
       "id": 1,
-      "name": "张三",
-      "age": 32,
-      "address": "北京"
+      "title": "The Great Gatsby",
+      "author": "F. Scott Fitzgerald",
+      "publishedAt": "1925-04-10",
+      "category": "Fiction"
     },
     {
       "id": 2,
-      "name": "李四",
-      "age": 28,
-      "address": "上海"
+      "title": "1984",
+      "author": "George Orwell",
+      "publishedAt": "1949-06-08",
+      "category": "Fiction"
     },
     {
-      "id": "3",
-      "name": "db",
-      "age": 22,
-      "address": "22"
+      "id": 3,
+      "title": "Sapiens",
+      "author": "Yuval Noah Harari",
+      "publishedAt": "2011-02-10",
+      "category": "Non-Fiction"
     }
-  ],
-  "dashboard": {
-    "id": 1,
-    "userCount": 1000,
-    "orderCount": 500,
-    "salesData": [
-      {
-        "day": "Mon",
-        "value": 150
-      },
-      {
-        "day": "Tue",
-        "value": 230
-      }
-    ]
-  }
+  ]
 }
