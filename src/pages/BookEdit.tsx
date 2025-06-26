@@ -24,7 +24,6 @@ export const BookEdit = () => (
           { id: "Non-Fiction", name: "Non-Fiction" },
           { id: "Science", name: "Science" },
           { id: "ceshi", name: "测试" },
-
         ]}
         validate={required()}
       />
