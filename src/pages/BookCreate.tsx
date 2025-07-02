@@ -20,11 +20,12 @@ export const BookCreate = () => (
       <SelectInput
         source="category"
         choices={[
-          { id: "Fiction", name: "Fiction" },
-          { id: "Non-Fiction", name: "Non-Fiction" },
-          { id: "Science", name: "Science" },
+          { id: "Fiction", name: "小说" },
+          { id: "Non-Fiction", name: "非小说" },
+          { id: "Science", name: "科学" },
         ]}
         validate={required()}
+        label="类别"
       />
     </SimpleForm>
   </Create>
