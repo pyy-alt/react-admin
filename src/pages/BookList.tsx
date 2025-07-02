@@ -6,7 +6,7 @@ import { List, Datagrid, TextField, DateField, SimpleList } from "react-admin";
 
 export const BookList = () => {
   const isSmall = useMediaQuery<Theme>((theme) => theme.breakpoints.down("sm"));
-  console.log(isSmall);
+  // console.log(isSmall);
   return (
     <List>
       {isSmall ? (

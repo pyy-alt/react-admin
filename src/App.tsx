@@ -23,7 +23,7 @@ const App = () => (
     loginPage={LoginPage}
   >
     {({ permissions }: { permissions: string | null }) => {
-      console.log("permissions", permissions);
+      // console.log("permissions", permissions);
       const effectivePermissions =
         permissions || localStorage.getItem("role") || null;
       return (

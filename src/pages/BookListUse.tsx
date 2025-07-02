@@ -5,7 +5,7 @@ import { TextInput } from "react-admin";
 
 export const BookList = () => {
   const { permissions } = usePermissions();
-  console.log("BookList Permissions:", permissions);
+  // console.log("BookList Permissions:", permissions);
 
   const columns = [
     ...(permissions === "admin" ? [<TextField source="id" key="id" />] : []),
