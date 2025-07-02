@@ -1,4 +1,5 @@
 import { Admin, Resource } from "react-admin";
+import { Bookmarks } from "@mui/icons-material";
 // 连接 json-server 的 API，自动处理 CRUD 请求。
 import jsonServerProvider from "ra-data-json-server";
 import { BookList } from "./pages/BookListUse";
@@ -27,7 +28,8 @@ const App = () => (
         permissions || localStorage.getItem("role") || null;
       return (
         <Resource
-          show={(effectivePermissions === "admin" ? true : false) as boolean}
+          icon={Bookmarks}
+          options={{ label: "图书" }}
           name="books"
           list={BookList}
           create={effectivePermissions === "admin" ? BookCreate : undefined}
