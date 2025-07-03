@@ -1,30 +1,50 @@
-import { List, Datagrid, TextField, DateField } from "react-admin";
+import {
+  List,
+  Datagrid,
+  TextField,
+  DateField,
+  useTranslate,
+} from "react-admin";
 import { Box } from "@mui/material";
 import { usePermissions } from "react-admin";
 import { TextInput } from "react-admin";
 
 export const BookList = () => {
   const { permissions } = usePermissions();
-  // console.log("BookList Permissions:", permissions);
+  const translate = useTranslate();
 
   const columns = [
-    ...(permissions === "admin" ? [<TextField source="id" key="id" />] : []),
-    <TextField source="title" key="title" />,
-    <TextField source="author" key="author" />,
-    <DateField source="publishedAt" key="publishedAt" />,
-    <TextField source="category" key="category" />,
+    ...(permissions === "admin"
+      ? [<TextField source="id" key="id" label="ID" />]
+      : []),
+    <TextField source="title" key="title" label={translate("custom.title")} />,
+    <TextField
+      source="author"
+      key="author"
+      label={translate("custom.author")}
+    />,
+    <DateField
+      source="publishedAt"
+      key="publishedAt"
+      label={translate("custom.publishedAt")}
+    />,
   ];
 
   return (
     <List
       filters={[
-        <TextInput label="Search" source="q" alwaysOn key="search-filter" />,
         <TextInput
-          label="Title"
+          label={translate("custom.books")}
+          source="q"
+          alwaysOn
+          key="search-filter"
+        />,
+        <TextInput
+          label={translate("custom.books")}
           source="title"
           defaultValue=""
           key="title-filter"
-          placeholder="请输入标题"
+          placeholder={translate("custom.books")}
         />,
       ]}
       sx={{

@@ -14,9 +14,9 @@ import {
 export const BookCreate = () => (
   <Create>
     <SimpleForm>
-      <TextInput source="title" validate={required()} />
-      <TextInput source="author" validate={required()} />
-      <DateInput source="publishedAt" />
+      <TextInput source="title" validate={required()} label="书名" />
+      <TextInput source="author" validate={required()} label="作者" />
+      <DateInput source="publishedAt" label="出版日期" />
       <SelectInput
         source="category"
         choices={[

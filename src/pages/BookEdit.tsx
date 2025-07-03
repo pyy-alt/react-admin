@@ -14,16 +14,16 @@ import {
 export const BookEdit = () => (
   <Edit>
     <SimpleForm>
-      <TextInput source="title" validate={required()} />
-      <TextInput source="author" validate={required()} />
-      <DateInput source="publishedAt" />
+      <TextInput source="title" validate={required()} label="书名" />
+      <TextInput source="author" validate={required()} label="作者" />
+      <DateInput source="publishedAt" label="出版日期" />
       <SelectInput
         source="category"
         choices={[
-          { id: "Fiction", name: "Fiction" },
-          { id: "Non-Fiction", name: "Non-Fiction" },
-          { id: "Science", name: "Science" },
-          { id: "ceshi", name: "测试" },
+          { id: "Fiction", name: "小说" },
+          { id: "Non-Fiction", name: "非小说" },
+          { id: "Science", name: "科学" },
+          { id: "ynaqing", name: "言情" },
         ]}
         validate={required()}
       />
