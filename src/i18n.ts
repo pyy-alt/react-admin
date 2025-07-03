@@ -19,6 +19,13 @@ const customTranslations = {
       author: "Author",
       publishedAt: "Published Date",
       category: "Category",
+      // 主题
+      theme: "Theme",
+      theme_default: "Default",
+      theme_black: "Black",
+      theme_nano: "Nano",
+      theme_radiant: "Radiant",
+      theme_house: "House",
     },
     ra: {
       configurable: {
@@ -38,6 +45,13 @@ const customTranslations = {
       author: "作者",
       publishedAt: "出版日期",
       category: "分类",
+      //中文主题
+      theme: "主题",
+      theme_default: "默认主题",
+      theme_black: "黑白主题",
+      theme_nano: "纳米主题",
+      theme_radiant: "光芒主题",
+      theme_house: "房子主题",
     },
     ra: {
       configurable: {

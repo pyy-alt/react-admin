@@ -104,9 +104,6 @@ export const Dashboard = () => {
     <div style={{ padding: 16 }}>
       <Card style={{ marginBottom: 16 }}>
         <CardContent>
-          <Typography variant="h5" gutterBottom>
-            图书管理系统仪表盘
-          </Typography>
           <Typography variant="body1" gutterBottom>
             图书总数：{stats.total}
           </Typography>
