@@ -27,14 +27,18 @@ const App = () => (
       const effectivePermissions =
         permissions || localStorage.getItem("role") || null;
       return (
-        <Resource
-          icon={Bookmarks}
-          options={{ label: "图书" }}
-          name="books"
-          list={BookList}
-          create={effectivePermissions === "admin" ? BookCreate : undefined}
-          edit={effectivePermissions === "admin" ? BookEdit : undefined}
-        />
+        <>
+          (
+          <Resource
+            icon={Bookmarks}
+            options={{ label: "图书" }}
+            name="books"
+            list={BookList}
+            create={effectivePermissions === "admin" ? BookCreate : undefined}
+            edit={effectivePermissions === "admin" ? BookEdit : undefined}
+          />
+          );
+        </>
       );
     }}
   </Admin>

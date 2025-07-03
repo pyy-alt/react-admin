@@ -6,6 +6,7 @@ import { Card, CardContent, Typography } from "@mui/material";
 import * as echarts from "echarts";
 import { useEffect, useRef, useState } from "react";
 import { useDataProvider } from "react-admin";
+import TestApi from "./TestApi";
 
 // 定义 ECharts 数据类型
 interface CategoryData {
@@ -101,7 +102,7 @@ export const Dashboard = () => {
 
   return (
     <div style={{ padding: 16 }}>
-      <Card>
+      <Card style={{ marginBottom: 16 }}>
         <CardContent>
           <Typography variant="h5" gutterBottom>
             图书管理系统仪表盘
@@ -112,6 +113,7 @@ export const Dashboard = () => {
           <div ref={chartRef} style={{ width: "100%", height: 300 }} />
         </CardContent>
       </Card>
+      <TestApi />
     </div>
   );
 };
