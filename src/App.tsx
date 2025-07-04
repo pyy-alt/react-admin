@@ -10,9 +10,11 @@ import {
   radiantDarkTheme,
   houseLightTheme,
   houseDarkTheme,
+  defaultDarkTheme,
+  defaultLightTheme,
 } from "react-admin";
 import { Bookmarks } from "@mui/icons-material";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { ThemeProvider } from "@mui/material/styles";
 import jsonServerProvider from "ra-data-json-server";
 import { BookList } from "./pages/BookListUse";
 import { BookCreate } from "./pages/BookCreate";
@@ -36,8 +38,8 @@ const themeOptions: ThemeOption[] = [
   { name: "House", light: houseLightTheme, dark: houseDarkTheme, key: "house" },
   {
     name: "Default",
-    light: createTheme(),
-    dark: createTheme({ palette: { mode: "dark" } }),
+    light: defaultLightTheme,
+    dark: defaultDarkTheme,
     key: "default",
   },
 ];
@@ -46,7 +48,7 @@ const themeMap = [
   { light: nanoLightTheme, dark: nanoDarkTheme },
   { light: radiantLightTheme, dark: radiantDarkTheme },
   { light: houseLightTheme, dark: houseDarkTheme },
-  { light: createTheme(), dark: createTheme({ palette: { mode: "dark" } }) },
+  { light: defaultLightTheme, dark: defaultDarkTheme },
 ];
 
 const dataProvider = jsonServerProvider("http://localhost:3001");
