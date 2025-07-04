@@ -3,11 +3,11 @@
     {
       "source": "/api/(.*)",
       "destination": "/api/[...path]"
-    }, // 将 API 请求重写到无服务器函数
+    },
     {
       "source": "/(.*)",
       "destination": "/index.html"
-    } // 单页应用（SPA）回退路由：所有其他请求都返回 index.html
+    }
   ],
   "builds": [
     {
@@ -22,5 +22,4 @@
       "use": "@vercel/node"
     }
   ]
-  // "routes" 字段已移除
 }
