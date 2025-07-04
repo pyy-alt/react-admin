@@ -3,7 +3,7 @@
 // https://opensource.org/licenses/MIT
 
 export interface ThemeOption {
-  key?: string; // 在这里加上 'key'
+  key: string;
   name: string;
   light: object;
   dark: object;

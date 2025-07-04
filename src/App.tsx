@@ -38,6 +38,7 @@ const themeOptions: ThemeOption[] = [
     name: "Default",
     light: createTheme(),
     dark: createTheme({ palette: { mode: "dark" } }),
+    key: "default",
   },
 ];
 const themeMap = [

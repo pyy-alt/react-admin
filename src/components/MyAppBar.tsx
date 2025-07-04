@@ -7,12 +7,14 @@ import { AppBar, Title } from "react-admin";
 import { Button, Menu, MenuItem } from "@mui/material";
 import { useTranslate } from "react-admin";
 import { ThemeOption } from "../types/myAppBar";
-
-export interface MyAppBarProps
-  extends React.ComponentPropsWithoutRef<typeof AppBar> {
+import { SxProps, Theme } from "@mui/material";
+export interface MyAppBarProps {
   themeIndex: number;
   setThemeIndex: (index: number) => void;
   themeOptions: ThemeOption[];
+  // 只保留必要的 AppBar props
+  className?: string;
+  sx?: SxProps<Theme>;
 }
 
 const MyAppBar = ({
@@ -54,7 +56,7 @@ const MyAppBar = ({
       >
         {themeOptions.map((option, index) => (
           <MenuItem
-            key={option.name}
+            key={option.key}
             selected={index === themeIndex}
             onClick={() => handleThemeSelect(index)}
           >
