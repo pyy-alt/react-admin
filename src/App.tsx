@@ -23,12 +23,17 @@ import { LoginPage } from "./pages/LoginPage";
 import { CustomLayout } from "./components/Layout";
 import { i18nProvider } from "./i18n";
 import { useState, useEffect } from "react";
-
-const themeOptions = [
-  { name: "Black", light: bwLightTheme, dark: bwDarkTheme },
-  { name: "Nano", light: nanoLightTheme, dark: nanoDarkTheme },
-  { name: "Radiant", light: radiantLightTheme, dark: radiantDarkTheme },
-  { name: "House", light: houseLightTheme, dark: houseDarkTheme },
+import { ThemeOption } from "./types/myAppBar";
+const themeOptions: ThemeOption[] = [
+  { name: "Black", light: bwLightTheme, dark: bwDarkTheme, key: "black" },
+  { name: "Nano", light: nanoLightTheme, dark: nanoDarkTheme, key: "nano" },
+  {
+    name: "Radiant",
+    light: radiantLightTheme,
+    dark: radiantDarkTheme,
+    key: "radiant",
+  },
+  { name: "House", light: houseLightTheme, dark: houseDarkTheme, key: "house" },
   {
     name: "Default",
     light: createTheme(),
@@ -66,7 +71,7 @@ const App = () => {
     ? themeOptions[themeIndex]?.dark || themeOptions[0].dark
     : themeOptions[themeIndex]?.light || themeOptions[0].light;
 
-  console.log("当前主题：", currentTheme, themeIndex, isDarkMode);
+  // console.log("当前主题：", currentTheme, themeIndex, isDarkMode);
   return (
     <ThemeProvider theme={currentTheme}>
       <Admin

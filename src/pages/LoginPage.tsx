@@ -1,6 +1,4 @@
 import { Login } from "react-admin";
-import { FormEvent, FormEventHandler } from "react";
-
 export const LoginPage = () => {
   return (
     <Login

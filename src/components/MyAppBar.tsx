@@ -6,21 +6,13 @@ import { TitlePortal } from "ra-ui-materialui";
 import { AppBar, Title } from "react-admin";
 import { Button, Menu, MenuItem } from "@mui/material";
 import { useTranslate } from "react-admin";
+import { ThemeOption } from "../types/myAppBar";
 
-type ThemeOption = {
-  key: string;
-  name: string;
-  light: object;
-  dark: object;
-};
-
-interface MyAppBarProps {
+export interface MyAppBarProps
+  extends React.ComponentPropsWithoutRef<typeof AppBar> {
   themeIndex: number;
   setThemeIndex: (index: number) => void;
-  // isDarkMode: boolean;
-  // setIsDarkMode: (v: boolean) => void;
   themeOptions: ThemeOption[];
-  [key: string]: any; // 允许透传其他 props
 }
 
 const MyAppBar = ({
@@ -51,7 +43,7 @@ const MyAppBar = ({
       <Title title="图书管理系统仪表盘" />
       <Button color="inherit" sx={{ mx: 2 }} onClick={handleMenuOpen}>
         {translate("custom.theme", { _: "Theme" })}：
-        {translate(`custom.theme_${themeOptions[themeIndex].key}`, {
+        {translate(`custom.theme_${themeOptions[themeIndex].name}`, {
           _: themeOptions[themeIndex].name,
         })}
       </Button>

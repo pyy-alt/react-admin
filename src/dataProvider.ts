@@ -5,7 +5,7 @@
 import { fetchUtils } from "react-admin";
 import DataProvider from "ra-data-json-server";
 
-const httpClient = (url: string, options: any = {}) => {
+const httpClient = (url: string, options: RequestInit = {}) => {
   if (!options.headers) {
     options.headers = new Headers({ Accept: "application/json" });
   }
