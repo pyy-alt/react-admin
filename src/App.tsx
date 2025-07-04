@@ -94,7 +94,9 @@ const App = () => {
         )}
         i18nProvider={i18nProvider}
       >
-        {({ permissions }: { permissions: string | null }) => {
+        {(params) => {
+          if (!params) return null; // 防止首次为 null 报错
+          const { permissions } = params;
           const effectivePermissions =
             permissions || localStorage.getItem("role") || null;
 
