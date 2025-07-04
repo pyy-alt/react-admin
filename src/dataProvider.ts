@@ -12,4 +12,5 @@ const httpClient = (url: string, options: RequestInit = {}) => {
   return fetchUtils.fetchJson(url, options);
 };
 
-export const dataProvider = DataProvider("http://localhost:3001", httpClient);
+// export const dataProvider = DataProvider("http://localhost:3001", httpClient);
+export const dataProvider = DataProvider("/api", httpClient);
