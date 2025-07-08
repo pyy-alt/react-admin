@@ -3,18 +3,15 @@
 // https://opensource.org/licenses/MIT
 import React, { useState } from "react";
 import { TitlePortal } from "ra-ui-materialui";
-import { AppBar, Title } from "react-admin";
+import { AppBar, Title, AppBarProps } from "react-admin";
 import { Button, Menu, MenuItem } from "@mui/material";
 import { useTranslate } from "react-admin";
 import { ThemeOption } from "../types/myAppBar";
-import { SxProps, Theme } from "@mui/material";
-export interface MyAppBarProps {
+
+export interface MyAppBarProps extends AppBarProps {
   themeIndex: number;
   setThemeIndex: (index: number) => void;
   themeOptions: ThemeOption[];
-  // 只保留必要的 AppBar props
-  className?: string;
-  sx?: SxProps<Theme>;
 }
 
 const MyAppBar = ({

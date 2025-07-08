@@ -12,6 +12,7 @@ import {
   houseDarkTheme,
   defaultDarkTheme,
   defaultLightTheme,
+  CoreLayoutProps,
 } from "react-admin";
 import { Bookmarks } from "@mui/icons-material";
 import { ThemeProvider } from "@mui/material/styles";
@@ -24,7 +25,7 @@ import { authProvider } from "./authProvider";
 import { LoginPage } from "./pages/LoginPage";
 import { CustomLayout } from "./components/Layout";
 import { i18nProvider } from "./i18n";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { ThemeOption } from "./types/myAppBar";
 const themeOptions: ThemeOption[] = [
   { name: "Black", light: bwLightTheme, dark: bwDarkTheme, key: "black" },
@@ -51,7 +52,7 @@ const themeMap = [
   { light: defaultLightTheme, dark: defaultDarkTheme },
 ];
 
-const dataProvider = jsonServerProvider("http://localhost:3001");
+const dataProvider = jsonServerProvider("/api");
 
 const App = () => {
   const translate = useTranslate();
@@ -74,6 +75,20 @@ const App = () => {
     ? themeOptions[themeIndex]?.dark || themeOptions[0].dark
     : themeOptions[themeIndex]?.light || themeOptions[0].light;
 
+  // 使用 useMemo 缓存 MyLayout 组件，避免每次重新渲染时重新创建
+  const MyLayout = useMemo(() => {
+    const LayoutComponent = (props: CoreLayoutProps) => (
+      <CustomLayout
+        {...props}
+        themeIndex={themeIndex}
+        setThemeIndex={setThemeIndex}
+        themeOptions={themeOptions}
+      />
+    );
+    LayoutComponent.displayName = "MyLayout";
+    return LayoutComponent;
+  }, [themeIndex, setThemeIndex, themeOptions]);
+
   // console.log("当前主题：", currentTheme, themeIndex, isDarkMode);
   return (
     <ThemeProvider theme={currentTheme}>
@@ -84,14 +99,7 @@ const App = () => {
         dataProvider={dataProvider}
         authProvider={authProvider}
         loginPage={LoginPage}
-        layout={(props) => (
-          <CustomLayout
-            {...props}
-            themeIndex={themeIndex}
-            setThemeIndex={setThemeIndex}
-            themeOptions={themeOptions}
-          />
-        )}
+        layout={MyLayout}
         i18nProvider={i18nProvider}
       >
         {(params) => {
