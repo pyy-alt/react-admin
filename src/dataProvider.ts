@@ -4,6 +4,7 @@
 
 import { fetchUtils } from "react-admin";
 import DataProvider from "ra-data-json-server";
+
 const httpClient = (url: string, options: RequestInit = {}) => {
   if (!options.headers) {
     options.headers = new Headers({ Accept: "application/json" });
@@ -11,4 +12,4 @@ const httpClient = (url: string, options: RequestInit = {}) => {
   return fetchUtils.fetchJson(url, options);
 };
 
-export const dataProvider = DataProvider("http://localhost:3001", httpClient);
+export const dataProvider = DataProvider("/api", httpClient);

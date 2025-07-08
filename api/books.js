@@ -2,15 +2,24 @@ import fs from "fs";
 import path from "path";
 
 export default function handler(req, res) {
+  console.log("API /books 被调用");
+  console.log("请求方法:", req.method);
+  console.log("查询参数:", req.query);
+  
   try {
     const dbPath = path.join(process.cwd(), "db.json");
+    console.log("数据库文件路径:", dbPath);
+    console.log("当前工作目录:", process.cwd());
 
     if (!fs.existsSync(dbPath)) {
-      return res.status(500).json({ error: "db.json not found" });
+      console.error("db.json 文件不存在");
+      return res.status(500).json({ error: "db.json not found", path: dbPath });
     }
 
+    console.log("db.json 文件存在，开始读取");
     const db = JSON.parse(fs.readFileSync(dbPath, "utf-8"));
     let books = db.books || [];
+    console.log("读取到", books.length, "本书");
 
     // 支持 react-admin 的查询参数
     const { _start, _end, _sort, _order } = req.query;
@@ -41,9 +50,10 @@ export default function handler(req, res) {
     res.setHeader("X-Total-Count", totalCount);
     res.setHeader("Access-Control-Expose-Headers", "X-Total-Count");
 
+    console.log("返回", books.length, "本书");
     res.status(200).json(books);
   } catch (error) {
     console.error("Error reading db.json:", error);
-    res.status(500).json({ error: "Internal server error" });
+    res.status(500).json({ error: "Internal server error", details: error.message });
   }
 } 

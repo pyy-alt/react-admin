@@ -16,7 +16,6 @@ import {
 } from "react-admin";
 import { Bookmarks } from "@mui/icons-material";
 import { ThemeProvider } from "@mui/material/styles";
-import jsonServerProvider from "ra-data-json-server";
 import { BookList } from "./pages/BookListUse";
 import { BookCreate } from "./pages/BookCreate";
 import { BookEdit } from "./pages/BookEdit";
@@ -25,6 +24,7 @@ import { authProvider } from "./authProvider";
 import { LoginPage } from "./pages/LoginPage";
 import { CustomLayout } from "./components/Layout";
 import { i18nProvider } from "./i18n";
+import { dataProvider } from "./dataProvider";
 import { useState, useEffect, useMemo } from "react";
 import { ThemeOption } from "./types/myAppBar";
 const themeOptions: ThemeOption[] = [
@@ -51,8 +51,6 @@ const themeMap = [
   { light: houseLightTheme, dark: houseDarkTheme },
   { light: defaultLightTheme, dark: defaultDarkTheme },
 ];
-
-const dataProvider = jsonServerProvider("/api");
 
 const App = () => {
   const translate = useTranslate();
